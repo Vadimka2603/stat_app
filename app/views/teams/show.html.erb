@@ -1,0 +1,9 @@
+<%= form_for([@team, @team.stats.build]) do |f|%>
+  <%= f.text_field (:season) %>
+
+  <%= f.submit "Create" %>
+
+
+  
+<% end %>
+<%= @team.name %>
