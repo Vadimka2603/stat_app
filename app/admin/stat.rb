@@ -9,7 +9,7 @@ ActiveAdmin.register Stat do
 
   index do
     column "Team" do |stat|
-      istat.team.name
+      stat.team.name
     end
     column :season
     column :win
