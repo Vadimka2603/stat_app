@@ -16,7 +16,7 @@ module Static_pages
     @wins =      page.css("td.ss-score.ss-text-win").length
     @draws =      page.css("td.ss-score.ss-text-draw").length
     @loses =      page.css("td.ss-score.ss-text-lose").length
-    @ups = @only.
+    
     end
   end
 end
