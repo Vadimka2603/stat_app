@@ -3,7 +3,8 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h3>
-    <%= image_tag(@team.logo) if @team.logo? %><%= @team.name %>
+    <%= image_tag(@team.logo) if @team.logo? %><br><br><%= @team.name %><br><br>
+    <%= link_to 'Описание', @team.wiki%><br>
       </h3>
     </section>
   </aside>
