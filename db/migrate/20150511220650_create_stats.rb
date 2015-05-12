@@ -1,18 +1,18 @@
 class CreateStats < ActiveRecord::Migration
   def change
     create_table :stats do |t|
+      t.string :season
       t.integer :win
-      t.integer :lose
       t.integer :draw
+      t.integer :lose
       t.integer :up
-      t.integer :down
+      t.integer :under
       t.integer :odd
       t.integer :even
-      t.string  :season
-      t.integer :team_id
-      
+      t.references :team, index: true
 
       t.timestamps null: false
     end
+    add_foreign_key :stats, :teams
   end
 end

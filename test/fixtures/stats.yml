@@ -3,15 +3,15 @@
 # Table name: stats
 #
 #  id         :integer          not null, primary key
+#  season     :integer
 #  win        :integer
-#  lose       :integer
 #  draw       :integer
+#  lose       :integer
 #  up         :integer
-#  down       :integer
+#  under      :integer
 #  odd        :integer
 #  even       :integer
 #  team_id    :integer
-#  season_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -19,19 +19,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  season: 1
   win: 1
-  lose: 1
   draw: 1
+  lose: 1
   up: 1
-  down: 1
+  under: 1
   odd: 1
   even: 1
+  team_id: 
 
 two:
+  season: 1
   win: 1
-  lose: 1
   draw: 1
+  lose: 1
   up: 1
-  down: 1
+  under: 1
   odd: 1
   even: 1
+  team_id: 

@@ -1,0 +1,17 @@
+Ввести ссылку с сайта betmarathon.com
+<%= form_tag("?", method: "get") do %>
+<%= text_field_tag(:q)%>
+<%= submit_tag "Поиск"%>
+<%end%>
+Матчи команды
+<%= @home_team.zip(@score, @avay_team).reverse %><br><br>
+Победы <%= @wins %><br><br>
+Ничьи <%= @draws %><br><br>
+Поражения <%= @loses %><br><br>
+
+Верховые матчи <%= @ups %>/<%= @only.length %><br><br>
+Низовые матчи <%= @unders %>/<%= @only.length %><br><br>
+Нечетный счет <%= @odds %>/<%= @only.length %><br><br>
+Четный счет <%= @evens %>/<%= @only.length %><br><br>
+
+Повторы четности <%= @sum_streak %><br><br>

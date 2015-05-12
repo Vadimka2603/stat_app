@@ -1,25 +1,30 @@
 class TeamsController < ApplicationController
-
-  def index
-  end
+  
 
   def show
-  	@team = Team.find(params[:id])
+    @team = Team.find(params[:id])
+    @stats = @team.stats.order(season: :desc)
   end
 
-  def teamstat
-  	default_source = 'https://www.betmarathon.com/su/sportstatext.htm?nr5=6126&gmt=2474%2C8'
-  	if params[:q].blank?
-      page = Nokogiri::HTML(open(default_source), nil, 'UTF-8')
-    else
-      page = Nokogiri::HTML(open(params[:q]), nil, 'UTF-8')
+  def index
+    @teams = Team.paginate(page: params[:page], per_page: 10)
+    if params[:search]
+      @teams = Team.search(params[:search]).paginate(page: params[:page], per_page: 10)
     end
-    @home_team = page.css("td.ss-member.ss-mem-1").map {|i| i.children.to_s}
-    @avay_team = page.css("td.ss-member.ss-mem-2").map {|i| i.children.to_s}
-    @score =     page.css("span.bold").map {|i| i.children.to_s}
-    @only_score =     page.css("span.bold").map {|i| i.children.to_s.split":"}
-    @only = @only_score.map {|i| i[0].to_i+i[1].to_i}
-    @wins =      page.css("td.ss-score.ss-text-win").length
   end
+
+  def create
+    @team = Team.create(team_params)
+    if @team.save
+      redirect_to @team, notice: 'Team was successfully created.' 
+    else
+      render action: 'new'
+    end       
+  end
+  
+  def team_params
+      params.require(:team).permit(:name, :logo, :wiki)
+  end
+
 
 end

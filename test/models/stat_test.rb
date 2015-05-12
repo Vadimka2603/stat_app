@@ -3,15 +3,15 @@
 # Table name: stats
 #
 #  id         :integer          not null, primary key
+#  season     :integer
 #  win        :integer
-#  lose       :integer
 #  draw       :integer
+#  lose       :integer
 #  up         :integer
-#  down       :integer
+#  under      :integer
 #  odd        :integer
 #  even       :integer
 #  team_id    :integer
-#  season_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

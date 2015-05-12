@@ -1,2 +1,11 @@
-<h1>Stats#show</h1>
-<p>Find me in app/views/stats/show.html.erb</p>
+
+Матчи команды <%= @stat.team.name %> в сезоне <%= @year %><br><br>
+
+Победы <%= @wins %><br><br>
+Ничьи <%= @draws %><br><br>
+Поражения <%= @loses %><br><br>
+
+Верховые матчи <%= @ups %>/<%= @wins+@draws+@loses %><br><br>
+Низовые матчи <%= @unders %>/<%= @wins+@draws+@loses %><br><br>
+Нечетный счет <%= @odds %>/<%= @wins+@draws+@loses %><br><br>
+Четный счет <%= @evens %>/<%= @wins+@draws+@loses %><br><br>

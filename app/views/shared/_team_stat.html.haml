@@ -1,0 +1,8 @@
+.col-md-8
+  - if @team.stats.any?
+    %h3
+      Сезоны 
+    
+- @stats.each do |stat|
+  = link_to stat.season, stat 
+  %br

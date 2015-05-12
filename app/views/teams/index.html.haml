@@ -1,0 +1,12 @@
+- provide(:title, 'Команды')
+%h1 Все участники
+= will_paginate
+%ul.teams= render @teams
+
+= form_tag(teams_path, method: "get", id: "search-form") do
+  = text_field_tag :search, params[:search], placeholder: "Поиск команды"
+  = submit_tag "Поиск"
+
+- unless @teams.present?
+  %p
+    Нет команд, имя которых содержит #{params[:search]}.

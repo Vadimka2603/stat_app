@@ -1,9 +1,19 @@
-<%= form_for([@team, @team.stats.build]) do |f|%>
-  <%= f.text_field (:season) %>
 
-  <%= f.submit "Create" %>
-
-
-  
-<% end %>
-<%= @team.name %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h3>
+    <%= image_tag(@team.logo) if @team.logo? %><%= @team.name %>
+      </h3>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @team.stats.any? %>
+      <h3>Выберите сезон </h3>
+      <ol class="microposts">
+        <%= render 'shared/team_stat' %>
+      </ol>
+      
+    <% end %>
+  </div>
+</div>
